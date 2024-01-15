@@ -57,9 +57,11 @@ public:
             {
                 // For the B/D output, CV 2 is used to shift the output; for the A/C
                 // output, the output is raised by one octave when Digital 2 is gated.
-                int32_t shift_alt = (ch == 1) ? DetentedIn(1) : Gate(1) * (12 << 7);
+                //int32_t shift_alt = (ch == 1) ? DetentedIn(1) : Gate(1) * (12 << 7);
 
-                int32_t quantized = Quantize(ch, pitch + shift_alt, root << 7, shift[ch]);
+                //int32_t quantized = Quantize(ch, pitch + shift_alt, root << 7, shift[ch]);
+                int32_t quantized = Quantize(ch, pitch, root << 7, shift[ch]);
+                
                 Out(ch, quantized);
                 last_note[ch] = quantized;
             }
